@@ -1,6 +1,7 @@
 {
   "name": "bookstore-react",
   "version": "0.1.0",
+  "homepage": "/react",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^7.0.1",

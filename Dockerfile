@@ -15,6 +15,6 @@ WORKDIR /app
 
 RUN npm install -g serve
 
-COPY --from=builder /app/build ./build
+COPY --from=builder /app/build ./public/react
 EXPOSE 8080
-CMD ["serve", "-p", "8080", "build"]
+CMD ["serve", "-p", "8080", "public"]
