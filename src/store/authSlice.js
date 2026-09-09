@@ -13,7 +13,7 @@ const handleFetchResponse = async (response) => {
 
 // Async Thunk: Registration
 export const registerUser = createAsyncThunk(
-    'auth/registerUser',
+    '/register',
     async (userData, { rejectWithValue }) => {
         try {
             const response = await fetch(`${API_BASE_URL}/register`, {
@@ -30,7 +30,7 @@ export const registerUser = createAsyncThunk(
 
 // Async Thunk: Login
 export const loginUser = createAsyncThunk(
-    'auth/loginUser',
+    '/login',
     async (credentials, { rejectWithValue }) => {
         try {
             const response = await fetch(`${API_BASE_URL}/login`, {

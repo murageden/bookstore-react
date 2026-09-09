@@ -4,14 +4,15 @@
   "homepage": "/react",
   "private": true,
   "dependencies": {
+    "@reduxjs/toolkit": "^2.12.0",
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-redux": "^7.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-redux": "^9.3.0",
+    "react-router-dom": "^6.30.6",
     "react-scripts": "^5.0.1",
-    "redux": "^4.0.5",
     "redux-thunk": "^2.4.2"
   },
   "scripts": {
@@ -34,5 +35,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "ajv": "^7.2.4"
   }
 }

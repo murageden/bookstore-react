@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import { loginUser, clearError } from '../store/authSlice';
+import './LoginPage.css';
 
 export const LoginPage = () => {
   const [credentials, setCredentials] = useState({ email: '', password: '' });
@@ -14,7 +15,7 @@ export const LoginPage = () => {
     dispatch(clearError());
 
     if (token) {
-      navigate('/dashboard');
+      navigate('/');
     }
   }, [token, dispatch, navigate]);
 
@@ -28,30 +29,49 @@ export const LoginPage = () => {
   };
 
   return (
-    <div style={{ maxWidth: '400px', margin: '50px auto', padding: '20px', border: '1px solid #ccc', borderRadius: '8px' }}>
-      <h2>Sign In</h2>
-      
-      {error && <div style={{ color: 'red', marginBottom: '15px' }}>{error}</div>}
+    <div className="login-container">
+      <div className="login-card">
+        <h2>Sign In</h2>
+        <p className="login-subtitle">Welcome back! Please enter your details.</p>
+        
+        {error && <div className="error-banner">{error}</div>}
 
-      <form onSubmit={handleSubmit}>
-        <div style={{ marginBottom: '10px' }}>
-          <label style={{ display: 'block' }}>Email Address</label>
-          <input type="email" name="email" value={credentials.email} onChange={handleChange} required style={{ width: '100%', padding: '8px' }} />
-        </div>
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="email">Email Address</label>
+            <input 
+              type="email" 
+              id="email"
+              name="email" 
+              placeholder="e.g. dennis@example.com"
+              value={credentials.email} 
+              onChange={handleChange} 
+              required 
+            />
+          </div>
 
-        <div style={{ marginBottom: '15px' }}>
-          <label style={{ display: 'block' }}>Password</label>
-          <input type="password" name="password" value={credentials.password} onChange={handleChange} required style={{ width: '100%', padding: '8px' }} />
-        </div>
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <input 
+              type="password" 
+              id="password"
+              name="password" 
+              placeholder="••••••••"
+              value={credentials.password} 
+              onChange={handleChange} 
+              required 
+            />
+          </div>
 
-        <button type="submit" disabled={isLoading} style={{ width: '100%', padding: '10px', background: '#28a745', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
-          {isLoading ? 'Signing In...' : 'Login'}
-        </button>
-      </form>
+          <button type="submit" className="login-btn" disabled={isLoading}>
+            {isLoading ? 'Signing In...' : 'Login'}
+          </button>
+        </form>
 
-      <p style={{ marginTop: '15px', textAlign: 'center' }}>
-        Don't have an account yet? <Link to="/register">Register here</Link>
-      </p>
+        <p className="login-footer">
+          Don't have an account yet? <Link to="/register">Register here</Link>
+        </p>
+      </div>
     </div>
   );
 };
