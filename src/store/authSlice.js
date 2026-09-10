@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-const API_BASE_URL = 'http://localhost:8080/api/v1/auth'; //
+const API_BASE_URL = 'http://localhost:8000/api/v1/auth'; //
 
 // Helper to handle Fetch responses safely
 const handleFetchResponse = async (response) => {

@@ -1,8 +1,8 @@
 import * as types from './actionTypes';
 
 
-const API_URL_BOOKS = 'http://localhost:8080/api/v1/books';
-const API_URL_AUTHORS = 'http://localhost:8080/api/v1/authors'
+const API_URL_BOOKS = 'http://localhost:8000/api/v1/books';
+const API_URL_AUTHORS = 'http://localhost:8000/api/v1/authors'
 
 
 const getRequestConfig = (method = 'GET', body = null) => {
