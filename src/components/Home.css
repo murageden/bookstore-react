@@ -59,6 +59,26 @@ body {
     color: var(--primary-color);
 }
 
+.nav-links .btn-logout {
+    background-color: #ef4444;
+    color: #ffffff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 1rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.nav-links .btn-logout:hover {
+    background-color: #dc2626;
+}
+
+.nav-links .btn-logout:active {
+    background-color: #b91c1c;
+}
+
 .btn-accent {
     background-color: var(--primary-color);
     color: white !important;
@@ -68,7 +88,6 @@ body {
     background-color: var(--primary-hover);
 }
 
-/* Hero Section */
 .hero-section {
     background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%);
     padding: 2.5rem;
@@ -106,7 +125,6 @@ body {
     background-color: var(--primary-hover);
 }
 
-/* Analytics Metrics Area */
 .analytics-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -137,7 +155,6 @@ body {
     color: var(--primary-color);
 }
 
-/* Book Directory Display */
 .catalog-header {
     display: flex;
     justify-content: space-between;
@@ -255,20 +272,64 @@ body {
     color: var(--text-muted);
 }
 
-/* Responsiveness adjustments */
-@media (max-width: 600px) {
+@media screen and (max-width: 768px) {
+
     .dashboard-header {
         flex-direction: column;
-        align-items: flex-start;
         gap: 1rem;
+        text-align: center;
+        padding: 1rem;
     }
 
     .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
         width: 100%;
-        justify-content: space-between;
+    }
+
+    .nav-links .nav-link,
+    .nav-links .btn-logout {
+        margin: 0;
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+        flex-grow: 1;
+        text-align: center;
     }
 
     .hero-section {
-        padding: 1.5rem;
+        padding: 2rem 1rem;
+        text-align: center;
+    }
+
+    .hero-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .analytics-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .catalog-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .catalog-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .nav-links {
+        flex-direction: column;
+    }
+
+    .book-display-card .form-row {
+        flex-direction: column;
     }
 }

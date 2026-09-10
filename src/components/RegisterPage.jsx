@@ -5,7 +5,7 @@ import { registerUser, clearError, resetSuccess } from '../store/authSlice';
 import './RegisterPage.css';
 
 export const RegisterPage = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', password: '', confirmPassword: '' });
+  const [formData, setFormData] = useState({ fullName: '', username: '', email: '', password: '', confirmPassword: '' });
   const [validationError, setValidationError] = useState('');
   
   const dispatch = useDispatch();
@@ -35,7 +35,8 @@ export const RegisterPage = () => {
     }
 
     dispatch(registerUser({ 
-      name: formData.name, 
+      fullName: formData.fullName, 
+      username: formData.username,
       email: formData.email, 
       password: formData.password 
     }));
@@ -53,13 +54,26 @@ export const RegisterPage = () => {
 
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="name">Full Name</label>
+            <label htmlFor="fullName">Full Name</label>
             <input 
               type="text" 
-              id="name"
-              name="name" 
-              placeholder="e.g. Dennis"
-              value={formData.name} 
+              id="fullName"
+              name="fullName" 
+              placeholder="e.g. John Doe"
+              value={formData.fullName} 
+              onChange={handleChange} 
+              required 
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="username">User Name</label>
+            <input 
+              type="text" 
+              id="username"
+              name="username" 
+              placeholder="e.g. Johnie"
+              value={formData.username} 
               onChange={handleChange} 
               required 
             />

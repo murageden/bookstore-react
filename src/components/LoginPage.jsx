@@ -5,7 +5,7 @@ import { loginUser, clearError } from '../store/authSlice';
 import './LoginPage.css';
 
 export const LoginPage = () => {
-  const [credentials, setCredentials] = useState({ email: '', password: '' });
+  const [credentials, setCredentials] = useState({ });
   
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -38,13 +38,13 @@ export const LoginPage = () => {
 
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="email">Email Address</label>
+            <label htmlFor="username">User Name</label>
             <input 
-              type="email" 
-              id="email"
-              name="email" 
-              placeholder="e.g. dennis@example.com"
-              value={credentials.email} 
+              type="text" 
+              id="username"
+              name="username" 
+              placeholder="e.g. johndoe@example.com"
+              value={credentials.username} 
               onChange={handleChange} 
               required 
             />

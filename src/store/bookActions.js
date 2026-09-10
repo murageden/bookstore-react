@@ -1,15 +1,38 @@
 import * as types from './actionTypes';
 
 
-const API_URL_BOOKS = 'http://localhost:8000/api/v1/books';
-const API_URL_AUTHORS = 'http://localhost:8000/api/v1/authors'
+const API_URL_BOOKS = 'http://localhost:8080/api/v1/books';
+const API_URL_AUTHORS = 'http://localhost:8080/api/v1/authors'
 
+
+const getRequestConfig = (method = 'GET', body = null) => {
+    const token = localStorage.getItem('userToken');
+
+    const headers = {
+        'Content-Type': 'application/json',
+    };
+
+    if (token) {
+        headers['Authorization'] = `Bearer ${token}`;
+    }
+
+    const config = {
+        method: method,
+        headers: headers,
+    };
+
+    if (body) {
+        config.body = JSON.stringify(body);
+    }
+
+    return config;
+};
 
 export const fetchAuthors = () => {
     return (dispatch) => {
         dispatch({ type: types.FETCH_AUTHORS_REQUEST });
 
-        fetch(API_URL_AUTHORS)
+        fetch(API_URL_AUTHORS, getRequestConfig('GET'))
             .then((response) => {
                 if (!response.ok) throw new Error('Could not pull author index data');
                 return response.json();
@@ -26,8 +49,7 @@ export const fetchAuthors = () => {
 export const fetchBooks = () => {
     return (dispatch) => {
         dispatch({ type: types.FETCH_BOOKS_REQUEST });
-
-        fetch(API_URL_BOOKS)
+        fetch(API_URL_BOOKS, getRequestConfig('GET'))
             .then((response) => {
                 if (!response.ok) throw new Error('Network response was not ok');
                 return response.json();
@@ -46,13 +68,7 @@ export const addBook = (bookData, callback) => {
     return (dispatch) => {
         dispatch({ type: types.ADD_BOOK_REQUEST });
 
-        fetch(API_URL_BOOKS, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(bookData),
-        })
+        fetch(API_URL_BOOKS, getRequestConfig('POST', bookData))
             .then((response) => {
                 if (!response.ok) throw new Error('Failed to create book resource');
                 return response.json();

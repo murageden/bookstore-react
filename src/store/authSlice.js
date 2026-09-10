@@ -1,14 +1,20 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-const API_BASE_URL = 'http://localhost:8000/api/v1/auth'; //
+const API_BASE_URL = 'http://localhost:8080/api/v1/auth'; //
 
 // Helper to handle Fetch responses safely
 const handleFetchResponse = async (response) => {
-    const data = await response.json();
+    const rawText = await response.text();
     if (!response.ok) {
-        throw new Error(data.message || 'Something went wrong');
+        throw new Error(rawText);
     }
-    return data;
+    try {
+        const data = JSON.parse(rawText);
+        return data;
+
+    } catch (error) {
+        return rawText;
+    }
 };
 
 // Async Thunk: Registration
@@ -41,7 +47,6 @@ export const loginUser = createAsyncThunk(
 
             const data = await handleFetchResponse(response);
 
-            // Expected backend response layout: { token: "JWT_STRING", user: { id, name, email } }
             if (data.token) {
                 localStorage.setItem('userToken', data.token);
             }
