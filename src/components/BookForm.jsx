@@ -72,7 +72,7 @@ export default function BookForm() {
     
     // 5. FIXED: Dispatch via Thunk and navigate back to "/" route upon success
     dispatch(addBook(formData, () => {
-      navigate('/');
+      navigate('/home');
     }));
   };
 
@@ -81,7 +81,7 @@ export default function BookForm() {
       <form onSubmit={handleSubmit} className="custom-form">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           {/* 6. FIXED: Replaced legacy property execution with browser redirect */}
-          <button type="button" className="remove-btn" onClick={() => navigate('/')}>
+          <button type="button" className="remove-btn" onClick={() => navigate('/home')}>
             &larr; Back to Dashboard
           </button>
           <h2>Register New Book</h2>

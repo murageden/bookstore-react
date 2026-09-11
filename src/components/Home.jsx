@@ -19,7 +19,7 @@ export default function Home({ onViewChange }) {
 
   const handleLogout = () => {
     dispatch(logout());
-    navigate('/login');
+    navigate('/');
   };
 
   const totalAuthors = books.reduce((acc, book) => acc + (book.authors?.length || 0), 0);

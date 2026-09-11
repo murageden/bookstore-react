@@ -17,7 +17,7 @@ export const RegisterPage = () => {
     
     if (success) {
       dispatch(resetSuccess());
-      navigate('/login');
+      navigate('/');
     }
   }, [success, dispatch, navigate]);
 

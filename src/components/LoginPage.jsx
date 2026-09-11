@@ -15,7 +15,7 @@ export const LoginPage = () => {
     dispatch(clearError());
 
     if (token) {
-      navigate('/');
+      navigate('/home');
     }
   }, [token, dispatch, navigate]);
 

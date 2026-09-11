@@ -7,7 +7,7 @@ export const ProtectedRoute = () => {
 
   // If there is no token, redirect to login page immediately
   if (!token) {
-    return <Navigate to="/login" replace />;
+    return <Navigate to="/" replace />;
   }
 
   // If authenticated, render child components seamlessly
