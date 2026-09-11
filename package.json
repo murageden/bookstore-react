@@ -1,7 +1,7 @@
 {
   "name": "bookstore-react",
   "version": "0.1.0",
-  "homepage": "/react",
+  "homepage": "/login",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^2.12.0",

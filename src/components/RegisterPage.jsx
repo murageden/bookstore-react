@@ -67,7 +67,7 @@ export const RegisterPage = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="username">User Name</label>
+            <label htmlFor="username">Username</label>
             <input 
               type="text" 
               id="username"

@@ -38,12 +38,12 @@ export const LoginPage = () => {
 
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="username">User Name</label>
+            <label htmlFor="username">Username</label>
             <input 
               type="text" 
               id="username"
               name="username" 
-              placeholder="e.g. johndoe@example.com"
+              placeholder="Enter your username"
               value={credentials.username} 
               onChange={handleChange} 
               required 
@@ -56,7 +56,7 @@ export const LoginPage = () => {
               type="password" 
               id="password"
               name="password" 
-              placeholder="••••••••"
+              placeholder="Enter your password"
               value={credentials.password} 
               onChange={handleChange} 
               required 
